@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Efeito de Neve</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #1a1a1a;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      color: white;
+    }
+
+    .snow {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 30px;
+      background-color: #fff;
+      opacity: 0.8;
+      border-top: 1px solid #bbb;
+    }
+
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      background-color: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    /* Animação dos flocos de neve */
+    @keyframes fall {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0.5;
+      }
+    }
+
+    .snow-accumulation {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 30px;
+      background-color: rgba(255, 255, 255, 0.2);
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="snow"></div>
+
+  <script>
+    // Função para gerar flocos de neve
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      
+      // Tamanho aleatório para o floco de neve
+      const size = Math.random() * 10 + 5; // Tamanho entre 5px e 15px
+      snowflake.style.width = `${size}px`;
+      snowflake.style.height = `${size}px`;
+      
+      // Posição horizontal aleatória
+      const leftPosition = Math.random() * 100; // 100% da largura da tela
+      snowflake.style.left = `${leftPosition}%`;
+
+      // Velocidade aleatória de queda
+      const animationDuration = Math.random() * 4 + 6; // Entre 6s e 10s
+      snowflake.style.animationDuration = `${animationDuration}s`;
+
+      // Cria um floco de neve e o adiciona à tela
+      document.body.appendChild(snowflake);
+
+      // Remover floco de neve após ele cair completamente
+      setTimeout(() => {
+        snowflake.remove();
+      }, animationDuration * 1000);
+    }
+
+    // Criar flocos de neve em intervalos aleatórios
+    setInterval(createSnowflake, 100);
+
+    // Função para acumular neve no chão
+    function accumulateSnow() {
+      const accumulation = document.createElement('div');
+      accumulation.classList.add('snow-accumulation');
+      document.body.appendChild(accumulation);
+    }
+
+    // Acumular neve ao longo do tempo
+    setInterval(accumulateSnow, 2000); // A cada 2 segundos
+  </script>
+
+</body>
+</html>
