@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Airton Sena de Souza</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Airton</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	        	<li class="nav-item active"><a href="about.html" class="nav-link">About</a></li>
+	        	<li class="nav-item"><a href="work.html" class="nav-link">Projects</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-color: #000000; position: relative; overflow: hidden;" data-stellar-background-ratio="0.5">
+      <!-- Cubo 3D centralizado com fundo preto -->
+      <div class="cube-container">
+        <div class="scene">
+          <div class="cube">
+            <div class="face front"><div class="grid"></div></div>
+            <div class="face back"><div class="grid"></div></div>
+            <div class="face left"><div class="grid"></div></div>
+            <div class="face right"><div class="grid"></div></div>
+            <div class="face top"><div class="grid"></div></div>
+            <div class="face bottom"><div class="grid"></div></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end">
+          <div class="col-md-9 ftco-animate pb-5">
+            <h2 class="mb-3 bread">About Me</h2>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About Me <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <style>
+      /* Fundo preto */
+      body, .hero-wrap {
+        background-color: #ffffff;
+      }
+      
+      /* Container do cubo centralizado */
+      .cube-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 0;
+      }
+      
+      /* Estilos originais do cubo (mantidos) */
+      .scene {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+      
+      .cube {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+      }
+      
+      .face {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        transform-style: preserve-3d;
+        perspective: 500px;
+        border: 0.1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .front { transform: rotateY(0deg) translateZ(150px); }
+      .back { transform: rotateY(180deg) translateZ(150px); }
+      .left { transform: rotateY(-90deg) translateZ(150px); }
+      .right { transform: rotateY(90deg) translateZ(150px); }
+      .top { transform: rotateX(90deg) translateZ(150px); }
+      .bottom { transform: rotateX(-90deg) translateZ(150px); }
+      
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        width: 100%;
+        height: 100%;
+      }
+      
+      .grid span {
+        width: 30px;
+        height: 30px;
+        background: rgba(51, 51, 51, 0.3);
+        border: 0.1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .grid span.active {
+        background: rgba(255, 255, 255, 0.9);
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+      }
+      
+      /* Garante que o conteúdo fique acima */
+      .hero-wrap .container {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+    </style>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      let cube = document.querySelector('.cube');
+      let grids = document.querySelectorAll('.grid');
+    
+      // Criar quadradinhos
+      grids.forEach(grid => {
+        for (let i = 0; i < 100; i++) {
+          let span = document.createElement('span');
+          grid.appendChild(span);
+        }
+      });
+    
+      // Animação dos quadradinhos
+      function animateGrid() {
+        grids.forEach(grid => {
+          let spans = grid.querySelectorAll('span');
+          let activeCount = Math.max(1, Math.floor(spans.length * 0.05));
+          
+          spans.forEach(s => s.classList.remove('active'));
+          
+          for (let i = 0; i < activeCount; i++) {
+            let randomIndex = Math.floor(Math.random() * spans.length);
+            spans[randomIndex].classList.add('active');
+          }
+        });
+        
+        setTimeout(animateGrid, Math.random() * 200 + 100);
+      }
+      
+      animateGrid();
+    
+      // Rotação com mouse
+      document.addEventListener('mousemove', (e) => {
+        let x = (e.clientX / window.innerWidth - 0.5) * 360;
+        let y = (e.clientY / window.innerHeight - 0.5) * -360;
+        cube.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;
+      });
+    });
+    </script>
+
+    <section class="ftco-section ftco-intro">
+    	<div class="container">
+    		<div class="row justify-content-end">
+    			<div class="col-md-4 d-flex">
+    				<div class="img" style="background-image: url('images/bg_1.jpg')"></div>
+    			</div>
+    			<div class="col-md-8 py-md-5 pt-4 p-md-5">
+            <h2><span>Full Stack</span> Engineer | <span>Big Data & BI</span> Specialist</h2>
+    				<p>Hello, world! My name is Airton Sena, and I am passionate about technology and design. I remember that, since childhood, I loved playing with animations in PowerPoint. Today, I have a degree in Control and Automation Engineering, with experience in manufacturing, industry, and mechanical design. The field of web development has always been very attractive to me. In 2022, I decided to enter this field and created my first program. that you will find here in my project, hope you like!</p>
+    				<p><a href="contact.html" class="btn btn-primary">Contact Me</a></p>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+
+    <section class="services-section py-5 py-md-0">
+      <div class="container">
+        <div class="row no-gutters d-flex">
+          <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block">
+              <div class="icon"><span class="flaticon-layers"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Web Design</h3>
+                <p>UI/UX Prototyping (Figma, Sketch)
+                  I transform ideas into interactive prototypes using tools like Figma and Sketch, creating clickable mockups that bring designs to life before development begins.</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services active d-block">
+              <div class="icon"><span class="flaticon-web-programming"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Web Development</h3>
+                <p>Every design starts with mobile users in mind, then adapts seamlessly to tablets and desktops, ensuring a flawless experience on any screen size.</p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block">
+              <div class="icon"><span class="flaticon-idea"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Graphic Design</h3>
+                <p>With After Effects, I create animations and motion graphics. Photoshop handles photo editing and digital art, while CorelDRAW crafts logos and vector designs—each tool bringing precision to my creative workflow.</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services active-2 d-block">
+              <div class="icon"><span class="flaticon-contract"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Writing</h3>
+                <p>I love crafting stories about nature’s wonders, cultural traditions, fascinating curiosities, and political landscapes. Through words, I explore how these elements intertwine—whether celebrating hidden details or sparking thoughtful conversations.</p>
+              </div>
+            </div>      
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="ftco-footer ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">About Me</h2>
+              <p>Nas terras distantes, além das montanhas de palavras, longe das cidades e praias, moram os textos esquecidos.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left mt-5">
+                <li class="ftco-animate">
+                  <a href="https://github.com/airtonsenadesouza" target="_blank" rel="noopener noreferrer">
+                    <span class="icon-github"></span>
+                  </a>
+                </li>
+                <li class="ftco-animate">
+                  <a href="https://www.linkedin.com/in/airton-sena-de-souza-7809a4191/" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     aria-label="LinkedIn">
+                    <span class="icon-linkedin"></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Informations</h2>
+              <ul class="list-unstyled">
+                <li><a href="work.html" class="py-2 d-block">Portfolio</a></li>
+                <li><a href="https://github.com/airtonsenadesouza" target="_blank" rel="noopener noreferrer" class="py-2 d-block">My Github</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Quick Access Links</h2>
+              <ul class="list-unstyled">
+                <li><a href="index.html" class="py-2 d-block">Home</a></li>
+                <li><a href="about.html" class="py-2 d-block">About Me</a></li>
+                <li><a href="work.html" class="py-2 d-block">My Projects</a></li>
+                <li><a href="contact.html" class="py-2 d-block">Contact Me</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Get in Touch</h2>
+              <div class="block-23 mb-3">
+                <ul>
+                  <li><span class="icon icon-map-marker"></span><span class="text">Lviv, Lviv Oblast, 79000</span></li>
+                  <li><a href="#"><span class="icon icon-phone"></span><span class="text">+380 97 552 17 36</span></a></li>
+                  <li><a href="mailto:airtonbram@gmail.com"><span class="icon icon-envelope"></span><span class="text">airtonbram@gmail.com</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>© <script>document.write(new Date().getFullYear());</script> | <a href="https://github.com/airtonsenadesouza" target="_blank">Airton Sena de Souza</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+  <script src="backup.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+    
+  </body>
+</html>
